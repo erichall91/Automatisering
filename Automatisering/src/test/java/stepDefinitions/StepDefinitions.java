@@ -1,36 +1,47 @@
 package stepDefinitions;
 
+import org.openqa.selenium.chrome.ChromeDriver;
+
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 public class StepDefinitions {
 	
+	String name = "JaghetererJaghetererJaghetererJaghetererJaghetererJaghetererJaghetererJaghetererJaghetererJaghetereri";
+	
+	
+	@Before
+	public void openBrowser() {
+		
+		System.setProperty("webdriver.chrome.driver", "C:\\Program Files\\Selenium\\chromedriver.exe");
 
-		@Given("I have entered email + randomInt + gmail into the e-mail text field")
-		public void i_have_entered_email_random_int_gmail_into_the_e_mail_text_field() {
-		    
+	    driver = new ChromeDriver();                 
+	    driver.manage().window().maximize();
+	    driver.get("https://www.grolls.se/helags-t-shirt--svart1100099.html");
+	
+	
+
+		@Given("I have entered {string} into the e-mail text field")
+		public void i_have_entered_into_the_e_mail_text_field(String string) {
+		   System.out.println(string); 
 		}
 
 
-		@Given("I have also entered Jaghetereric + randomInt into the username text field")
-		public void i_have_also_entered_jaghetereric_random_int_into_the_username_text_field() {
-		    
-		}
-		@Given("I have also entered Jaghetereric123 into the password text field")
-		public void i_have_also_entered_jaghetereric123_into_the_password_text_field() {
-		    
-		}
-		@When("I press sign up")
-		public void i_press_sign_up() {
-		    
-		}
-		@Then("I continue to check your email for verification")
-		public void i_continue_to_check_your_email_for_verification() {
-		   
-		}
+			@Given("I have also entered {string} into the username text field")
+			public void i_have_also_entered_into_the_username_text_field(String string) {
+			    
+			}
 
 
+			@Given("I have also entered {string} into the password text field")
+			public void i_have_also_entered_into_the_password_text_field(String string) {
+			    
+			}
+			@Then("I continue to {string} for verification")
+			public void i_continue_to_for_verification(String string) {
+			    
+			}
 
 
 }
