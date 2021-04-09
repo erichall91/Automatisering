@@ -1,7 +1,8 @@
 Feature: Create account
 
-@test1
-Scenario Outline: Create account
+I want to test the registration function on mailchimp with different scenarios
+
+Scenario Outline: Create Mailchimp account
 Given I have entered "<email>" into the e-mail text field
 And I have also entered "<username>" into the username text field
 And I have also entered "<password>" into the password text field

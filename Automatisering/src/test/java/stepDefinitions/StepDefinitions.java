@@ -1,5 +1,7 @@
 package stepDefinitions;
 
+import static org.junit.Assert.assertEquals;
+
 import java.util.Random;
 
 import org.openqa.selenium.By;
@@ -87,10 +89,20 @@ public class StepDefinitions {
 			@Then("I continue to {string} for verification")
 			public void i_continue_to_for_verification(String veri) {
 			  
-		
+				
+				if (veri.equals("Check your email")) {
+			  assertEquals(veri, driver.findElement(By.cssSelector(".\\!margin-bottom--lv3")).getText());
+			}else if(veri.equals("Enter a value less than 100 characters long")) {
+				assertEquals(veri, driver.findElement(By.className("invalid-error")).getText());
+			}else if(veri.equals("Another user with this username already exists. Maybe it's your evil twin. Spooky.")) {
+			    assertEquals(veri, driver.findElement(By.className("invalid-error")).getText());
+			}else if(veri.equals("Please enter a value")) {
+					assertEquals(veri, driver.findElement(By.className("invalid-error")).getText());	
 				}
-			
-			
+			}
+			    
+				
+
 			@After
 			public void teardown() {
 				driver.quit();
